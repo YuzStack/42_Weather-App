@@ -31,8 +31,8 @@ const processData = function (days) {
       return {
         date: day.datetime,
         temp: {
-          celcius: day.temp,
-          fahrenheit: day.temp * 1.8 + 32,
+          celcius: Math.round(day.temp),
+          fahrenheit: Math.round(day.temp * 1.8 + 32),
         },
         description: day.description,
         icon: day.icon,
@@ -41,13 +41,13 @@ const processData = function (days) {
 };
 
 // Controller
-const controller = async function () {
+const controller = async function (query) {
   try {
     // 1. Render spinner
     view.renderSpinner();
 
     // 2. Get data from API
-    const data = await getData('London');
+    const data = await getData(query);
 
     // 3. Display data in view
     view.displayData(data);

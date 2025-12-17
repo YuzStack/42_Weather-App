@@ -1,1 +1,32 @@
 @import 'tailwindcss';
+
+@layer utilities {
+  /* Makes the icons float slightly for that modern feel */
+  .animate-bounce-slow {
+    animation: bounce-slow 3s infinite ease-in-out;
+  }
+
+  @keyframes bounce-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+/* The scroll container needs these specific properties */
+.weather-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.weather-gallery::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
