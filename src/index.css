@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @layer utilities {
-  /* Makes the icons float slightly for that modern feel */
+  /* Makes the icons float slightly for that modern feel 😇😇 */
   .animate-bounce-slow {
     animation: bounce-slow 3s infinite ease-in-out;
   }
