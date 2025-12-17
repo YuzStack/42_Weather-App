@@ -11,7 +11,7 @@
     >
       <h1 class="text-center font-serif text-2xl font-semibold">SkyCast</h1>
 
-      <!-- FORM FIELD -->
+      <!-- Form Field -->
       <div class="w-full px-6 pt-10 pb-6">
         <form id="search-form" class="group relative">
           <input
@@ -51,47 +51,72 @@
         </p>
       </div>
 
-      <!-- WEATHER CARDS -->
+      <!-- Weather gallery -->
       <div class="weather-gallery justify-center">
-        <div
-          class="group relative flex h-[450px] w-[280px] shrink-0 snap-center flex-col items-center justify-between overflow-hidden rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-2xl"
-        >
-          <div
-            class="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-white/10 blur-3xl transition-all duration-500 group-hover:bg-white/20"
-          ></div>
-          <div class="text-center">
-            <h3 class="text-xl font-bold tracking-tight text-white/90">
-              Tuesday
-            </h3>
-            <p class="text-sm font-medium text-white/60">Dec 16, 2025</p>
-          </div>
-          <div class="relative">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/1163/1163736.png"
-              alt="Rainy Condition"
-              class="animate-bounce-slow h-32 w-32 object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]"
-            />
-          </div>
-          <div class="w-full text-center">
-            <div class="flex items-start justify-center">
-              <span class="text-7xl font-black tracking-tighter text-white"
-                >22</span
-              >
-              <span class="mt-2 text-3xl font-light text-white">°C</span>
+        <!-- Loading Spinner -->
+        <div class="hidden">
+          <div class="flex flex-col items-center justify-center space-y-4">
+            <div class="relative h-20 w-20">
+              <div
+                class="absolute inset-4 animate-pulse rounded-full bg-linear-to-tr from-yellow-400 to-orange-500 shadow-[0_0_20px_rgba(250,204,21,0.6)]"
+              ></div>
+              <div
+                class="animate-spin-slow absolute inset-0 rounded-full border-4 border-transparent border-t-yellow-300 border-b-yellow-300"
+              ></div>
+              <div
+                class="animate-spin-reverse absolute inset-2 rounded-full border-4 border-transparent border-r-orange-400 border-l-orange-400"
+              ></div>
             </div>
-            <div
-              class="mt-4 rounded-2xl border border-white/5 bg-black/10 px-4 py-2"
+            <p
+              class="animate-pulse text-xs font-medium tracking-widest text-white uppercase"
             >
-              <p class="text-xs leading-relaxed font-medium text-white/90">
-                Partly cloudy throughout the day with afternoon rain.
-              </p>
-            </div>
+              Retrieving Skies...
+            </p>
           </div>
-          <button
-            class="toggle-temp-btn mt-5 w-full rounded-2xl border border-white/10 bg-white/20 py-4 text-xs font-bold tracking-widest text-white uppercase backdrop-blur-md transition-all hover:bg-white/30 active:scale-95"
+        </div>
+
+        <!-- Weather Cards -->
+        <div class="">
+          <div
+            class="group relative flex h-[450px] w-[280px] shrink-0 snap-center flex-col items-center justify-between overflow-hidden rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-2xl"
           >
-            Switch to Fahrenheit
-          </button>
+            <div
+              class="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-white/10 blur-3xl transition-all duration-500 group-hover:bg-white/20"
+            ></div>
+            <div class="text-center">
+              <h3 class="text-xl font-bold tracking-tight text-white/90">
+                Tuesday
+              </h3>
+              <p class="text-sm font-medium text-white/60">Dec 16, 2025</p>
+            </div>
+            <div class="relative">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1163/1163736.png"
+                alt="Rainy Condition"
+                class="animate-bounce-slow h-32 w-32 object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]"
+              />
+            </div>
+            <div class="w-full text-center">
+              <div class="flex items-start justify-center">
+                <span class="text-7xl font-black tracking-tighter text-white"
+                  >22</span
+                >
+                <span class="mt-2 text-3xl font-light text-white">°C</span>
+              </div>
+              <div
+                class="mt-4 rounded-2xl border border-white/5 bg-black/10 px-4 py-2"
+              >
+                <p class="text-xs leading-relaxed font-medium text-white/90">
+                  Partly cloudy throughout the day with afternoon rain.
+                </p>
+              </div>
+            </div>
+            <button
+              class="toggle-temp-btn mt-5 w-full rounded-2xl border border-white/10 bg-white/20 py-4 text-xs font-bold tracking-widest text-white uppercase backdrop-blur-md transition-all hover:bg-white/30 active:scale-95"
+            >
+              Switch to Fahrenheit
+            </button>
+          </div>
         </div>
       </div>
     </main>

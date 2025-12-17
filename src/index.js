@@ -2,6 +2,16 @@ import './index.css';
 
 // Date format desired: Wed Aug 3rd, 2025
 
+// Tailwind utility classes for moods
+const day_clear_sunny = 'bg-linear-to-br from-blue-400 to-orange-300';
+const rainy_stormy = 'bg-linear-to-br from-slate-700 to-blue-900';
+const cloudy_overcast = 'bg-linear-to-br from-indigo-400 to-gray-400';
+const night = 'bg-linear-to-br from-[#2C3E50] to-[#000000]';
+
+// Random data
+const condition =
+  'Max 2 lines of text, using text-xs for the long descriptions.';
+
 // Model
 const apiKey = 'ARAR7KY7GJXREMTTPBJA9KR54';
 const baseUrl =
@@ -59,6 +69,9 @@ const controller = async function (query) {
 
 // View
 const view = (function () {
+  const formEl = document.querySelector('#search-form');
+  const inputEl = document.querySelector('#city-input');
+
   const renderSpinner = function () {};
 
   const displayError = function () {};
@@ -68,6 +81,17 @@ const view = (function () {
   };
 
   // Handle form submition
+  formEl.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const query = inputEl.value.trim();
+    if (!query) return;
+
+    // 1. Blur the input to hide mobile keyboard
+    inputEl.blur();
+
+    // 2. Call search logic
+  });
 
   return { renderSpinner, displayData, displayError };
 })();
