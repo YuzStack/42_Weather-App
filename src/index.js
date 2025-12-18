@@ -73,8 +73,6 @@ const controlSearch = async function (query) {
     // 4. Display data in view
     view.displayData(state);
   } catch (error) {
-    console.error(error);
-    console.log(error.message);
     view.displayError(error.message);
   }
 };
@@ -199,7 +197,6 @@ const view = (function () {
   };
 
   const displayData = function (data) {
-    console.log(data);
     const markup = generateMarkup(data);
 
     clear();
