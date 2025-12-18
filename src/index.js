@@ -1,7 +1,5 @@
 import './index.css';
 
-// Date format desired: Wed Aug 3rd, 2025
-
 // Tailwind utility classes for moods
 const day_clear_sunny = 'bg-linear-to-br from-blue-400 to-orange-300';
 const rainy_stormy = 'bg-linear-to-br from-slate-700 to-blue-900';
