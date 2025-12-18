@@ -57,7 +57,7 @@ const getWeatherCardObj = function (weatherCardId) {
 };
 
 // Controller ‼️
-const controlSearch = async function (query) {
+const controlSubmitQuery = async function (query) {
   try {
     // 1. Render spinner
     view.renderSpinner();
@@ -203,18 +203,20 @@ const view = (function () {
   };
 
   // Handle form submition
-  formEl.addEventListener('submit', function (e) {
-    e.preventDefault();
+  const addHandlerSubmitQuery = function (handler) {
+    formEl.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    const query = inputEl.value.trim();
-    if (!query) return;
+      const query = inputEl.value.trim();
+      if (!query) return;
 
-    // 1. Blur the input to hide mobile keyboard
-    inputEl.blur();
+      // 1. Blur the input to hide mobile keyboard
+      inputEl.blur();
 
-    // 2. Call search logic
-    controlSearch(query);
-  });
+      // 2. Call search logic
+      handler(query);
+    });
+  };
 
   const toggTempDeg = function (weatherCard, weatherCardObj) {
     const tempValueEl = weatherCard.querySelector('.temp-value');
@@ -245,7 +247,13 @@ const view = (function () {
     });
   };
 
-  return { renderSpinner, displayData, displayError, addHanlderToggTemDeg };
+  return {
+    renderSpinner,
+    addHandlerSubmitQuery,
+    displayData,
+    displayError,
+    addHanlderToggTemDeg,
+  };
 })();
 
 // Helper Functions ‼️
@@ -312,6 +320,7 @@ const helpers = (function () {
 
 // Event Hanlers
 const init = function () {
+  view.addHandlerSubmitQuery(controlSubmitQuery);
   view.addHanlderToggTemDeg(controlToggTemDeg);
 };
 init();
